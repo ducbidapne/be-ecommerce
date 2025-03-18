@@ -1,6 +1,3 @@
-Dưới đây là tài liệu API (API Documentation) cho các routes với tiền tố `/api`.  
-
----
 
 # **📌 API Documentation for E-Commerce Backend**
 Base URL: **`/api`**
