@@ -1,7 +1,7 @@
 import Product from "../models/product.model.js";
 import { storage } from "../configs/firebase.js";
 import { v4 as uuidv4 } from "uuid";
-import { ref, uploadBytes, deleteObject } from "firebase/storage";
+import { ref, uploadBytes, deleteObject, getDownloadURL  } from "firebase/storage";
 import expressAsyncHandler from "express-async-handler";
 
 const bucketName = process.env.STORAGE_BUCKET;
@@ -69,7 +69,7 @@ export const createProduct = expressAsyncHandler(async (req, res) => {
       const fileName = `products/${uuidv4()}.jpg`;
       const fileRef = ref(storage, fileName);
       await uploadBytes(fileRef, file.buffer, { contentType: file.mimetype });
-      return `https://storage.googleapis.com/${bucketName}/${fileName}`;
+      return await getDownloadURL(fileRef);
     })
   );
 
@@ -114,7 +114,7 @@ export const updateProduct = expressAsyncHandler(async (req, res) => {
         const fileName = `products/${uuidv4()}.jpg`;
         const fileRef = ref(storage, fileName);
         await uploadBytes(fileRef, file.buffer, { contentType: file.mimetype });
-        return `https://storage.googleapis.com/${bucketName}/${fileName}`;
+        return await getDownloadURL(fileRef);
       })
     );
 
