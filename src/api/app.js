@@ -37,13 +37,17 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.get("/", (req, res) => {
-  res.send("Index !");
+app.get('/', (req, res) => {
+  res.send('Hello from Vercel API!');
 });
 
 app.use((req, res) => {
   res.send("Not found!");
 });
 
+// const PORT = process.env.PORT || 3000;
 
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
 export default app;
