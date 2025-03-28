@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "data:import": "node seed.js",
+    "data:destroy": "node seed.js -d"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +15,8 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "body-parse": "^0.1.0",
+    "color": "^5.0.0",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
